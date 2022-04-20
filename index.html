@@ -3,7 +3,7 @@
 <style>
 .vl {
   border-left:25px solid purple;
-  width:100%
+  width:100%;
   position: absolute;
   height:50px;
   top: 0;
@@ -16,17 +16,17 @@ input {
   font-size: 16px;
   background-color: white;
   padding: 12px 20px 12px 40px;
-  
+
 }
 input[type=submit] {
   background-color: purple;
   color: white;
   padding: 12px 20px;
   border: none;
-  width:px;
+
   border-radius: 4px;
   cursor: pointer;
-  float:;
+
 }
 
 input[type=submit]:hover {
@@ -108,34 +108,64 @@ body {
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-  
+  <script src="https://smtpjs.com/v3/smtp.js"></script>
   <script>
 	function validateForm() {
-	
-  let x = document.forms["f1"]["tname"].value;
-  if (x.length < 5) {
-    alert("Team Name must be 5 letters or longer");
-    return false;
-  }
-   
-} 
- function phoneno(inputtxt)
-{
-  var phoneno = /^\d{10}$/;
-  if(inputtxt.value.match(phoneno))
-  {
-      return true;
-  }
-  else
-  {
-     alert("Not a valid Phone Number");
-     return false;
-  }
-  }
-  
-  
-  
+
+      let x = document.forms["f1"]["tname"].value;
+      if (x.length < 5) {
+        alert("Team Name must be 5 letters or longer");
+        return false;
+      }
+      let y = document.forms["f1"]["contact"].value;
+      var phoneno = /^\d{10}$/;
+      if (y.match(phoneno)) {
+        return true;
+      } else {
+        alert("Not a valid Phone Number");
+        return false;
+      }
+
+    }
+    function sendEmail() {
+
+      var mail = document.forms["f1"]["email"].value;
+      Email.send({
+
+          Host : "smtp.gmail.com",
+        Username: "tanishgoelirc@gmail.com",
+        Password: "Tanish@2k3",
+        To: mail,
+        From: "tanishgoelirc@gmail.com",
+        Subject: "Hult Registration",
+        Body: "You have successfully registered for Hult Prize 2022. We wish you luck!"
+      }).then(
+              message=>alert("mail sent successfully")
+      );
+    }
+
+
+    const form=document.querySelector('#form')
+
+    const scriptURL='https://script.google.com/macros/s/AKfycby5yR3534GF_AphWjenXvqwQNA3PTr9k0p3C9qCYxBD5hzKJZ8MRNimdg_aQjl19Gj6/exec'
+    form.addEventListener('submit', e => {
+
+      e.preventDefault()
+      console.log(form)
+      let requestBody = new FormData(form)
+      fetch(scriptURL, { method: 'POST', body: requestBody})
+              .then(response => {
+                alert('Success!', response)
+
+              })
+              .catch(error => {
+                        alert('Error!', error.message)
+
+                      }
+              )
+    })
   </script>
+
 </head>
 <body bgcolor="ghostwhite">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -153,43 +183,43 @@ body {
   </div>
   
 </div>
-
 <br><br>
 <div class="container">
 <h1>Hult Prize OnCampus Round 2022</h1><br>
-	<form name="f1" onsubmit="return validateForm()">
+	<form name="f1" onsubmit="return validateForm()" id="form" action="javascript:sendEmail()">
 <div class="flex-container">
   <div class="form-group">
     <label for="formGroupExampleInput">Team Name</label>
-    <input type="text" class="form-control" id="formGroupExampleInput" name="tname"placeholder="Team Name"required>
+    <input type="text" class="form-control" id="formGroupExampleInput" name="tname" placeholder="Team Name"required>
   </div>
 
   <div class="form-group">
     <label for="formGroupExampleInput2">Name of the Team's Leader</label>
-    <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Leader name"required>
+    <input type="text" class="form-control" name="lname" id="formGroupExampleInput2" placeholder="Leader name" required>
 	
   </div>
   </div>
   <div class="form-group">
     <label for="formGroupExampleInput">Email ID of Team Leader </label>
-    <input type="email" class="form-control" id="formGroupExampleInput" placeholder="Email address"required>
+    <input type="email" class="form-control" name="email" id="formGroupExampleInput" placeholder="Email address" required>
   </div>
 
   <div class="form-group">
     <label for="formGroupExampleInput2">Contact Number </label>
-    <input type="text" class="form-control" id="formGroupExampleInput2"name="contact" placeholder="Contact Number of the Leader"required>
+    <input type="text" class="form-control" id="formGroupExampleInput2" name="contact" placeholder="Contact Number of the Leader"required>
 	
   </div>
   <div class="form-group">																																											
     <label for="formGroupExampleInput2">Team Report (in .pdf format) </label>
-    <input type="file" class="form-control" id="formGroupExampleInput2" required>
+    <input type="file" class="form-control" id="formGroupExampleInput2" name="rep" required>
 	
   </div>
  
- <center> <input type="submit" value="Submit"onclick="phoneno(document.f1.contact)"onclick="tname(document.f1.tname)" ></center> </div>
+ <center> <input type="submit" value="Submit" id="submit"></center> </div>
 </form>	</div>
 <footer class="container-fluid"style="background-color:#9932CC;">
   <p style="font-size:25px;">International Relations Cell, IIT Kharagpur</p>
 </footer>
+
 </body>
 </html>
