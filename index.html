@@ -110,7 +110,7 @@ body {
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <script src="https://smtpjs.com/v3/smtp.js"></script>
   <script>
-	function validateForm() {
+    function validateForm() {
 
       let x = document.forms["f1"]["tname"].value;
       if (x.length < 5) {
@@ -127,44 +127,11 @@ body {
       }
 
     }
-    function sendEmail() {
-
-      var mail = document.forms["f1"]["email"].value;
-      Email.send({
-
-          Host : "smtp.gmail.com",
-        Username: "tanishgoelirc@gmail.com",
-        Password: "Tanish@2k3",
-        To: mail,
-        From: "tanishgoelirc@gmail.com",
-        Subject: "Hult Registration",
-        Body: "You have successfully registered for Hult Prize 2022. We wish you luck!"
-      }).then(
-              message=>alert("mail sent successfully")
-      );
-    }
 
 
-    const form=document.querySelector('#form')
-
-    const scriptURL='https://script.google.com/macros/s/AKfycby5yR3534GF_AphWjenXvqwQNA3PTr9k0p3C9qCYxBD5hzKJZ8MRNimdg_aQjl19Gj6/exec'
-    form.addEventListener('submit', e => {
-
-      e.preventDefault()
-      console.log(form)
-      let requestBody = new FormData(form)
-      fetch(scriptURL, { method: 'POST', body: requestBody})
-              .then(response => {
-                alert('Success!', response)
-
-              })
-              .catch(error => {
-                        alert('Error!', error.message)
-
-                      }
-              )
-    })
   </script>
+
+
 
 </head>
 <body bgcolor="ghostwhite">
@@ -214,12 +181,58 @@ body {
     <input type="file" class="form-control" id="formGroupExampleInput2" name="rep" required>
 	
   </div>
- 
- <center> <input type="submit" value="Submit" id="submit"></center> </div>
+ <input type="hidden" id="hid">
+ <center> <input type="submit" value="Submit" id="submit"onclick="fun()"></center> </div>
 </form>	</div>
 <footer class="container-fluid"style="background-color:#9932CC;">
   <p style="font-size:25px;">International Relations Cell, IIT Kharagpur</p>
 </footer>
 
 </body>
+<script>
+  const form = document.querySelector('#form')
+  const btn = document.querySelector('#submit')
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbzWpzEHnZfWRTUBk043Co7UYwODHq4MJwpHVukCm_YLaaLj0ofE3Ei73jQbpHGn_1p0/exec'
+
+  function sendEmail() {
+
+     var mail = document.forms["f1"]["email"].value;
+     Email.send({
+
+       Host: "smtp.gmail.com",
+       Username: "tanishgoelirc@gmail.com",
+       Password: "Tanish@2k3",
+       To: mail,
+       From: "tanishgoelirc@gmail.com",
+       Subject: "Hult Registration",
+       Body: "You have successfully registered for Hult Prize 2022. We wish you luck!"
+     }).then(
+             message => alert("mail sent successfully")
+     );
+
+     form.addEventListener('submit', e => {
+
+       e.preventDefault()
+       btn.disabled = true
+       btn.innerHTML = "Loading...."
+       console.log(form)
+
+
+       fetch(scriptURL, {method: 'POST', body: new FormData(form)})
+               .then(response => {
+                 btn.disabled = false
+                 btn.innerhtml = "submit"
+                 alert('Success!', response)
+
+               })
+               .catch(error => {
+                         btn.disabled = false
+                         btn.innerHTML = "Submit"
+                         alert('Error!', error.message)
+
+                       }
+               )
+     })
+   }
+</script>
 </html>
