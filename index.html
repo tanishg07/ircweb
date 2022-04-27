@@ -1,111 +1,127 @@
 <html>
+
 <head>
-<style>
-.vl {
-  border-left:25px solid purple;
-  width:100%;
-  position: absolute;
-  height:50px;
-  top: 0;
-}
-input {
-  width: 100px;
-  box-sizing: border-box;
-  border: 2px solid;
-  border-radius: 4px;
-  font-size: 16px;
-  background-color: white;
-  padding: 12px 20px 12px 40px;
+  <style>
+    .vl {
+      border-left: 25px solid purple;
+      width: 100%;
+      position: absolute;
+      height: 50px;
+      top: 0;
+    }
 
-}
-input[type=submit] {
-  background-color: purple;
-  color: white;
-  padding: 12px 20px;
-  border: none;
+    input {
+      width: 100px;
+      box-sizing: border-box;
+      border: 2px solid;
+      border-radius: 4px;
+      font-size: 16px;
+      background-color: white;
+      padding: 12px 20px 12px 40px;
 
-  border-radius: 4px;
-  cursor: pointer;
+    }
 
-}
+    input[type=submit] {
+      background-color: purple;
+      color: white;
+      padding: 12px 20px;
+      border: none;
 
-input[type=submit]:hover {
-  background-color: #9400D3;
-}
-input:focus {
-  border: 2px solid black	;
- 
-}
-#lol{
-background-color:purple;
-border: 1px solid purple;
-}
-.vl {
-  background-color: black;
-  color: purple;
-  
-}
- .navbar {
+      border-radius: 4px;
+      cursor: pointer;
+
+    }
+
+    input[type=submit]:hover {
+      background-color: #9400D3;
+    }
+
+    input:focus {
+      border: 2px solid black;
+
+    }
+
+    #lol {
+      background-color: purple;
+      border: 1px solid purple;
+    }
+
+    .vl {
+      background-color: black;
+      color: purple;
+
+    }
+
+    .navbar {
       margin-bottom: 0;
       border-radius: 0;
     }
-    
-   
-    .row.content {height: 450px}
-    
+
+
+    .row.content {
+      height: 450px
+    }
+
     .sidenav {
       padding-top: 20px;
       background-color: purple;
       height: 100%;
     }
-    
-    
+
+
     footer {
       background-color: black;
       color: white;
       padding: 15px;
     }
-    
-    
+
+
     @media screen and (max-width: 767px) {
       .sidenav {
         height: auto;
         padding: 15px;
       }
-      .row.content {height:auto;} 
+
+      .row.content {
+        height: auto;
+      }
     }
 
-.navbar{
-background-color:purple;
-}
+    .navbar {
+      background-color: purple;
+    }
 
-#xo{
-background-color:purple;
-}
-.container-fluid{
-background-color:purple;
-}
-* {box-sizing: border-box;}
+    #xo {
+      background-color: purple;
+    }
 
-body { 
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-}
-@media screen and (min-width: 501px) {
-  div.bar {
-    font-size: 30px;
-  }
-}
+    .container-fluid {
+      background-color: purple;
+    }
 
-@media screen and (max-width: 500px) {
-  div.bar {
-    font-size: 15px;
-  }
-}
+    * {
+      box-sizing: border-box;
+    }
 
-</style>
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+    }
 
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    @media screen and (min-width: 501px) {
+      div.bar {
+        font-size: 30px;
+      }
+    }
+
+    @media screen and (max-width: 500px) {
+      div.bar {
+        font-size: 15px;
+      }
+    }
+  </style>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <script src="https://smtpjs.com/v3/smtp.js"></script>
@@ -134,59 +150,67 @@ body {
 
 
 </head>
-<body bgcolor="ghostwhite">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-	<div class="container-fluid">
-  <div class="page-header" style="background-color:purple;">
-    <div style="color:white;"class="bar"><img src="https://ircell.iitkgp.ac.in/static/hult.png" id="lol" style=" width: 100%;
+<body bgcolor="ghostwhite">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <div class="container-fluid">
+    <div class="page-header" style="background-color:purple;">
+      <div style="color:white;" class="bar"><img src="https://ircell.iitkgp.ac.in/static/hult.png" id="lol" style=" width: 100%;
   max-width: 40px;
   height: auto;">Hult Prize At IIT Kharagpur
-	<img src="https://ircell.iitkgp.ac.in/static/ftp/ProjectsPage/img/logo/ftp_logo.png"id="lol" style=" width: 100%;
+        <img src="https://ircell.iitkgp.ac.in/static/ftp/ProjectsPage/img/logo/ftp_logo.png" id="lol" style=" width: 100%;
   max-width: 90px;
-  height: auto;"align="right" alt="irc">
+  height: auto;" align="right" alt="irc">
 
-	<br>	</div>      
-  </div>
-  
-</div>
-<br><br>
-<div class="container">
-<h1>Hult Prize OnCampus Round 2022</h1><br>
-	<form name="f1" onsubmit="return validateForm()" id="form" action="javascript:sendEmail()">
-<div class="flex-container">
-  <div class="form-group">
-    <label for="formGroupExampleInput">Team Name</label>
-    <input type="text" class="form-control" id="formGroupExampleInput" name="tname" placeholder="Team Name"required>
-  </div>
+        <br>
+      </div>
+    </div>
 
-  <div class="form-group">
-    <label for="formGroupExampleInput2">Name of the Team's Leader</label>
-    <input type="text" class="form-control" name="lname" id="formGroupExampleInput2" placeholder="Leader name" required>
-	
   </div>
-  </div>
-  <div class="form-group">
-    <label for="formGroupExampleInput">Email ID of Team Leader </label>
-    <input type="email" class="form-control" name="email" id="formGroupExampleInput" placeholder="Email address" required>
-  </div>
+  <br><br>
+  <div class="container">
+    <h1>Hult Prize OnCampus Round 2022</h1><br>
+    <form name="f1" onsubmit="return validateForm()" id="form" action="javascript:sendEmail()">
+      <div class="flex-container">
+        <div class="form-group">
+          <label for="formGroupExampleInput">Team Name</label>
+          <input type="text" class="form-control" id="formGroupExampleInput" name="tname" placeholder="Team Name"
+            required>
+        </div>
 
-  <div class="form-group">
-    <label for="formGroupExampleInput2">Contact Number </label>
-    <input type="text" class="form-control" id="formGroupExampleInput2" name="contact" placeholder="Contact Number of the Leader"required>
-	
+        <div class="form-group">
+          <label for="formGroupExampleInput2">Name of the Team's Leader</label>
+          <input type="text" class="form-control" name="lname" id="formGroupExampleInput2" placeholder="Leader name"
+            required>
+
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="formGroupExampleInput">Email ID of Team Leader </label>
+        <input type="email" class="form-control" name="email" id="formGroupExampleInput" placeholder="Email address"
+          required>
+      </div>
+
+      <div class="form-group">
+        <label for="formGroupExampleInput2">Contact Number </label>
+        <input type="text" class="form-control" id="formGroupExampleInput2" name="contact"
+          placeholder="Contact Number of the Leader" required>
+
+      </div>
+      <div class="form-group">
+        <label for="formGroupExampleInput2">Team Report (in .pdf format) </label>
+        <input type="file" class="form-control" id="formGroupExampleInput2" name="rep" required>
+
+      </div>
+      <input type="hidden" id="hid">
+      <center> <input type="submit" value="Submit" id="submit"></center>
   </div>
-  <div class="form-group">																																											
-    <label for="formGroupExampleInput2">Team Report (in .pdf format) </label>
-    <input type="file" class="form-control" id="formGroupExampleInput2" name="rep" required>
-	
+  </form>
   </div>
- <input type="hidden" id="hid">
- <center> <input type="submit" value="Submit" id="submit"onclick="fun()"></center> </div>
-</form>	</div>
-<footer class="container-fluid"style="background-color:#9932CC;">
-  <p style="font-size:25px;">International Relations Cell, IIT Kharagpur</p>
-</footer>
+  <footer class="container-fluid" style="background-color:#9932CC;">
+    <p style="font-size:25px;">International Relations Cell, IIT Kharagpur</p>
+  </footer>
 
 </body>
 <script>
@@ -196,43 +220,34 @@ body {
 
   function sendEmail() {
 
-     var mail = document.forms["f1"]["email"].value;
-     Email.send({
+    var mail = document.forms["f1"]["email"].value;
+    Email.send({
+      Host: "smtp.gmail.com",
+      Username: "tanishgoelirc@gmail.com",
+      Password: "Tanish@79",
+      To: mail,
+      From: "tanishgoelirc@gmail.com",
+      Subject: "Hult Registration",
+      Body: "You have successfully registered for Hult Prize 2022. We wish you luck!"
+    }).then(
+      message => {
+        alert("mail sent successfully");
+        fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+          .then(response => {
+            btn.disabled = false
+            btn.innerhtml = "submit"
+            alert('Success!', response)
 
-       Host: "smtp.gmail.com",
-       Username: "tanishgoelirc@gmail.com",
-       Password: "Tanish@2k3",
-       To: mail,
-       From: "tanishgoelirc@gmail.com",
-       Subject: "Hult Registration",
-       Body: "You have successfully registered for Hult Prize 2022. We wish you luck!"
-     }).then(
-             message => alert("mail sent successfully")
-     );
+          })
+          .catch(error => {
+            btn.disabled = false
+            btn.innerHTML = "Submit"
+            alert('Error!', error.message)
 
-     form.addEventListener('submit', e => {
-
-       e.preventDefault()
-       btn.disabled = true
-       btn.innerHTML = "Loading...."
-       console.log(form)
-
-
-       fetch(scriptURL, {method: 'POST', body: new FormData(form)})
-               .then(response => {
-                 btn.disabled = false
-                 btn.innerhtml = "submit"
-                 alert('Success!', response)
-
-               })
-               .catch(error => {
-                         btn.disabled = false
-                         btn.innerHTML = "Submit"
-                         alert('Error!', error.message)
-
-                       }
-               )
-     })
-   }
+          })
+      }
+    );
+  }
 </script>
+
 </html>
